@@ -1,6 +1,6 @@
 /**
  * Photogrammetry Rotation Rig
- * Version: 0.3
+ * Version: 0.4
  *
  * In this project we are rotating a platform, waiting some time for the platform to settle, then
  * triggering a camera to take a photo, then repeating. This is primarly used for photogrammetry.
@@ -49,6 +49,7 @@ const int SHUTTER_TRIGGER_TIME = 20;  // ms
 #define STATE_SETTILE_TIME 3  // Waiting for the platform to settle
 #define STATE_SHUTTER 4       // Triggering the camera to take a photo
 #define STATE_SHUTTER_TIME 5  // Waiting for the camera to take a photo (exposer time, recording to SD card, etc)
+#define STATE_STOP 6          // Stop the machine
 
 // Globals
 // -------------
@@ -65,7 +66,7 @@ void setup() {
   delay(1000);  // Wait for the serial port to start
 
   Serial.println("Photogrammetry Rotation Rig");
-  Serial.println("Version: 0.3");
+  Serial.println("Version: 0.4");
   Serial.println("https://github.com/funvill/");
 
   // Set the maximum speed and acceleration
